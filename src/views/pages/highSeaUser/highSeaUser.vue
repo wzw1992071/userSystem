@@ -22,9 +22,7 @@
                 </div>
                  <div class="demo-input-suffix">
                     <span>分类：</span>  
-                    <el-select
-                        v-model="searchParam.income_expend"
-                        >
+                    <el-select v-model="searchParam.income_expend">
                         <el-option
                             v-for="item in selectData.type"
                             :key="item.value"
@@ -99,7 +97,68 @@
                 @current-change="pageChange"
                 :total="dataTotal">
             </el-pagination>
-        </div>    
+        </div> 
+        <el-dialog
+            title="用户信息"
+            :visible.sync="dialogVisible"
+            width="60%"
+            >
+            <el-form label-width="120px">
+                <el-row>
+                    <el-col :span="8">
+                    <el-form-item label="客户名称:" prop="buyer_shop_name">
+                        <el-input v-model="changeUserInfo.userName"></el-input>
+                    </el-form-item>
+                    </el-col>
+                    <el-col :span="8">
+                    <el-form-item label="电话:" prop="buyer_shop_name">
+                        <el-input v-model="changeUserInfo.userName"></el-input>
+                    </el-form-item>
+                    </el-col>
+                    <el-col :span="8">
+                    <el-form-item label="地址:" prop="buyer_shop_name">
+                        <el-input v-model="changeUserInfo.userName"></el-input>
+                    </el-form-item>
+                    </el-col>
+                </el-row>
+                <el-row>
+                    <el-col :span="8">
+                    <el-form-item label="分类:" prop="buyer_shop_name">
+                        <el-select v-model="searchParam.income_expend">
+                            <el-option
+                                v-for="item in selectData.type"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select> 
+                    </el-form-item>
+                    </el-col>
+                    <el-col :span="8">
+                    <el-form-item label="是否有效:" prop="buyer_shop_name">
+                        <el-select v-model="searchParam.income_expend">
+                            <el-option
+                                v-for="item in selectData.type"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select> 
+                    </el-form-item>
+                    </el-col>
+                    <el-col :span="8">
+                    <el-form-item label="备注:" prop="buyer_shop_name">
+                        <el-input v-model="changeUserInfo.userName"></el-input>
+                    </el-form-item>
+                    </el-col>
+                </el-row>
+            </el-form>
+            
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="changeInfo">确 定</el-button>
+            </span>
+        </el-dialog>   
     </div>
 </template>
 
@@ -119,16 +178,23 @@ export default {
         type: {}
       },
       tableData:[],
-      dataTotal:20
+      dataTotal:20,
+      dialogVisible:true,
+      changeUserInfo:{
+          userName:""
+      }
     };
   },
   methods: {
     queryBuyerName() {},
     querySearchTel() {},
-    importUser() {},
-    exportUser() {},
-    pageChange(){}
-  }
+    importUser() {},//导入用户
+    exportUser() {},//导出用户
+    getData(){},//获取数据
+    pageChange(){},//翻页
+    changeInfo(){}
+  },
+  
 };
 </script>
 <style lang="less" scoped>
