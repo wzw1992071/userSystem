@@ -29,11 +29,9 @@ module.exports = {
       '@components':resolve('src/views/components'),
       'view':resolve('src/view'),
       'js':resolve('src/assets/js'),
-      'src': resolve('src'),
     }
   },
   externals:{
-    'vue':'Vue',
     'vue-router':'VueRouter',
     'vuex':'Vuex',
     'axios':'axios'

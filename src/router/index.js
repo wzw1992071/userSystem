@@ -16,7 +16,19 @@ export default new Router({
         {
           path: 'highSeaUser',
           alias:'/', //重命名，让进来加载默认为orderList
-          component: _import('pages/highSeaUser/highSeaUser')
+          component: _import('pages/user/highSeaUser')
+        },
+        {
+          path: 'effectDistribution',
+          component: _import('pages/user/effectDistribution')
+        },
+        {
+          path: 'effectUndistribution',
+          component: _import('pages/user/effectUndistribution')
+        },
+        {
+          path: 'uneffect',
+          component: _import('pages/user/uneffect')
         },
 
       ]

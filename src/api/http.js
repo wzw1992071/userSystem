@@ -30,7 +30,7 @@ axios.interceptors.request.use(function(config){
     Message.error({
         message:"请求超时"
     })
-  return Promise.reject(error);
+  return Promise.reject(err);
 });
 //添加一个响应拦截器
 axios.interceptors.response.use(function(res){
@@ -45,15 +45,14 @@ axios.interceptors.response.use(function(res){
       }
     })
   }
-  if(res.data.code > 0){
+  if(res.data.code != 0){
     Message.error({
         message:"请求失败"
     })
     console.log(`请求失败:${res.data.message}`)
-    return Promise.reject(error);
+    return Promise.reject(res.data.message);
   }
-
-  return res;
+  return res.data;
 },function(err){
   //Do something with response error
     console.log(err)

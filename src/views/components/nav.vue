@@ -1,67 +1,5 @@
 <template>
   <div class="nav" id="nav">
-    <!-- <el-row class="tac">
-      <el-menu
-        default-active="2"
-        router="true"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
-        background-color="#232B2D"
-        text-color="#fff"
-        active-text-color="#ffd04b">
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-document"></i>
-            <span>订单首页</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="1-1">订单列表</el-menu-item>
-            <el-menu-item index="1-2">冻参谋导入</el-menu-item>
-            <el-menu-item index="1-3">手动加单</el-menu-item>
-            <el-menu-item index="1-4">订单导出</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="2">
-          <template slot="title">
-            <i class="el-icon-document"></i>
-            <span>采购首页</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="2-1">采购页面</el-menu-item>
-            <el-menu-item index="2-2">供应商修改页面</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="3">
-          <template slot="title">
-            <i class="el-icon-document"></i>
-            <span>收货首页</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="3-1">收货单列表</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="4">
-          <template slot="title">
-            <i class="el-icon-document"></i>
-            <span>销售数据</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="4-1">销售单打印</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-          <el-submenu index="5">
-          <template slot="title">
-            <i class="el-icon-document"></i>
-            <span>物流配送单</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="5-1">发送物流单</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-      </el-menu>
-    </el-row> -->
-
     <el-menu
         :default-active="defaultCheck"
         class="el-menu-vertical-demo"
@@ -92,11 +30,15 @@ export default {
         routeLists: [
                 { 
                     index:"1",  
-                    name:"公海用户",
+                    name:"用户",
                     childs:[
                       {index:"1-1",  name:"公海用户",path:"/highSeaUser"},
+                      {index:"1-2",  name:"有效已分配",path:"/effectDistribution"},
+                      {index:"1-3",  name:"有效未分配",path:"/effectUndistribution"},
+                      {index:"1-4",  name:"无效用户",path:"/uneffect"},
                     ]
                 },
+                
                 
         ]
     }

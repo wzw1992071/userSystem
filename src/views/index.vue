@@ -35,17 +35,17 @@ export default {
   beforeCreate () {
     // console.log(1)
     // 如果为本地，模拟登陆获取token
-    // if(window.location.hostname=="localhost"){
-    //    this.$axios.post("/user/login/test",{
+    if(window.location.hostname=="localhost"){
+      this.$axios.post("/user/login/test",{
     
-    //   })
-    //   .then(function(){
-    //     console.log("登陆成功")})
-    //   .catch(function(){
-    //       console.log("登陆失败，请重新登陆")
-    //   })
+      })
+      .then(function(){
+        console.log("登陆成功")})
+      .catch(function(){
+          console.log("登陆失败，请重新登陆")
+      })
   
-    // }  
+    }  
   },
   created(){
   }
