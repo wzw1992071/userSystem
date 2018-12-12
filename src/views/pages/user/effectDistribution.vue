@@ -395,7 +395,8 @@ export default {
                 if(param[i]==="") delete param[i];
             }
             delete param["order_info"]
-            delete param["shop_type_name"]            
+            delete param["shop_type_name"]    
+            delete param["stewardName"]         
             if(this.changeUserInfo.id){
                 // 有id是修改
                 let sendParam = {
@@ -460,9 +461,16 @@ export default {
     }
   },
   created() {
-    this.getShopTypeLists()
-    this.getManagerLists()
-    this.search()
+        // this.getShopTypeLists()
+        // this.getManagerLists() 
+        // this.search()
+
+        Promise.all([this.getShopTypeLists(),this.getManagerLists()]).then(()=>{
+            this.search()
+        }).catch(()=>{
+        })
+    
+    
   },
 };
 </script>
