@@ -22,6 +22,17 @@
                         </el-option>
                     </el-select> 
                 </div>
+                <div class="demo-input-suffix">
+                    <span>注册:</span>  
+                    <el-select v-model="searchParam.register">
+                        <el-option
+                            v-for="item in selectData.isRegister"
+                            :key="item.id"
+                            :label="item.name"
+                            :value="item.id">
+                        </el-option>
+                    </el-select> 
+                </div>
                 <div class="btnGuoup">
                     
                     <el-button type="success" icon="el-icon-search" @click="search">确定</el-button>
@@ -32,7 +43,9 @@
                         <input type="file" @change="chooseExcel">
                     </div>
                 </div>
+              
             </div>
+           
         </form>
         <div class="tableArea">
             <el-table
@@ -88,10 +101,10 @@
              <el-table-column
 
                 label="最后下单日期"
-                min-width="150"
+                min-width="180"
                 align="center">
                  <template slot-scope="scope">
-                   <div v-for="(item,index) in scope.row.order_info">{{item.lately_order_time}}</div>
+                   <div v-for="(item,index) in scope.row.order_info">{{item.lately_order_time?item.lately_order_time:"未下单"}}</div>
                 </template>
             </el-table-column>
              <el-table-column
@@ -231,7 +244,8 @@ export default {
       searchParam: {
         shop_name: "",
         phone: "",
-        shop_type: ""
+        shop_type: "",
+        register:""
 
       },
       copyParam:{},
@@ -239,7 +253,8 @@ export default {
       selectData: {
         shop_type:[],
         valid:[{name:"无效",id:0},{name:"有效",id:1}],
-        add_wechat:[{name:"未加",id:0},{name:"已加",id:1}]
+        add_wechat:[{name:"未加",id:0},{name:"已加",id:1}],
+        isRegister:[{name:"未注册",id:0},{name:"已注册",id:1}]
       },
       tableData: [
       ],

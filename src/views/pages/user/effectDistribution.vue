@@ -11,7 +11,7 @@
                     <span>电话：</span>  
                     <el-input v-model="searchParam.phone"></el-input>
                 </div>
-                 <div class="demo-input-suffix">
+                <div class="demo-input-suffix">
                     <span>分类：</span>  
                     <el-select v-model="searchParam.shop_type">
                         <el-option
@@ -20,6 +20,17 @@
                             :label="item.name"
                             :value="item.id">
                         </el-option>
+                    </el-select> 
+                </div>
+                 <div class="demo-input-suffix">
+                    <span>分配给：</span>  
+                    <el-select v-model="searchParam.steward_id">
+                        <el-option
+                                v-for="item in managerLists"
+                                :key="item.id"
+                                :label="item.namePhone"
+                                :value="item.id">
+                            </el-option>
                     </el-select> 
                 </div>
                 <div class="btnGuoup">
@@ -235,8 +246,8 @@ export default {
         phone: "",
         shop_type: "",
         valid:1,
-        allot:1
-
+        allot:1,
+        steward_id:""
 
       },
       copyParam:{},
@@ -364,9 +375,12 @@ export default {
     },
     //录入用户(有参数则是修改，否再为新增)
     importUser(row) {
+        console.log(row)
         // console.log(row)
         if(row){
-            this.changeUserInfo=row
+            this.changeUserInfo=JSON.parse(
+                JSON.stringify(row)
+            );
         }else{
             this.changeUserInfo=JSON.parse(
                 JSON.stringify(this.changeUserInfoDemo)
