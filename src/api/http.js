@@ -14,7 +14,7 @@ var axios = Axios.create({
   baseURL: BaseUrl,
   timeout: 30000,
   headers: {
-  }
+  },
 });
 
 var loadinginstace
